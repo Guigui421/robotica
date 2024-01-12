@@ -5,7 +5,7 @@ namespace SpriteKind {
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile3, function (sprite, location) {
     game.gameOver(false)
-    music.play(music.createSoundEffect(WaveShape.Triangle, 300, 200, 154, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
+    music.play(music.createSoundEffect(WaveShape.Triangle, 300, 200, 154, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.InBackground)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath3, function (sprite, location) {
     game.gameOver(true)
@@ -20,7 +20,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.saplingOak, function (spri
 	
 })
 controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
-	
+    music.play(music.createSoundEffect(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
 })
 let mySprite = sprites.create(img`
     . . . . . . . c c c . . . . . . 
