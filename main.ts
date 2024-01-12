@@ -3,17 +3,15 @@ namespace SpriteKind {
     export const Cofre = SpriteKind.create()
     export const Cofree = SpriteKind.create()
 }
-scene.onHitWall(SpriteKind.Player, function (sprite, location) {
-	
-})
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile3, function (sprite, location) {
     game.gameOver(false)
+    music.play(music.createSoundEffect(WaveShape.Triangle, 300, 200, 154, 0, 75, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath3, function (sprite, location) {
     game.gameOver(true)
 })
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
-    light.setAll(0x000000)
+    game.splash("Hola payo")
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Copa`, function (sprite, location) {
     game.gameOver(true)
@@ -22,7 +20,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.saplingOak, function (spri
 	
 })
 controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
-    game.splash("Hola payo")
+	
 })
 let mySprite = sprites.create(img`
     . . . . . . . c c c . . . . . . 
@@ -84,8 +82,8 @@ controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
 mySprite.setScale(0.9, ScaleAnchor.Middle)
 tiles.setCurrentTilemap(tilemap`Laberint`)
-info.startCountdown(45)
-mySprite.setPosition(120, 8)
+info.startCountdown(60)
+null.setPosition(120, 8)
 forever(function () {
     if (controller.up.isPressed()) {
         mySprite.setImage(img`
